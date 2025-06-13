@@ -9,6 +9,6 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   controllers: [FeaturesController],
   providers: [FeaturesService],
-  imports: [UserModule, CategoryModule, ClotheModule, AuthModule]
+  imports: [UserModule, CategoryModule, ClotheModule, AuthModule],
 })
 export class FeaturesModule {}
