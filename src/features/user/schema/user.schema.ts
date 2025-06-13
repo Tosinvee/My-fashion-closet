@@ -1,6 +1,11 @@
 import { Prop, Schema } from '@nestjs/mongoose';
 import { createCleanSchema } from 'src/utils/mongoose/schema.method';
 import { Document } from 'mongoose';
+
+export enum OTPMethod {
+  PhoneNumber = ' Phone_number',
+  Email = 'email',
+}
 @Schema()
 export class User extends Document {
   @Prop({ unique: true })
@@ -41,6 +46,13 @@ export class User extends Document {
 
   @Prop()
   profilePicUri: string;
+
+  @Prop({
+    default: OTPMethod.Email,
+    enum: Object.values(OTPMethod),
+    type: String,
+  })
+  otpMethod: string;
 }
 
 export const UserSchema = createCleanSchema(User);
