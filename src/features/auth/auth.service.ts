@@ -9,11 +9,7 @@ import { UserService } from '../user/user.service';
 import { CreateUserDto } from '../user/dto/createUser.dto';
 import { User } from '../user/schema/user.schema';
 import { ConfigService } from '@nestjs/config';
-
-export interface TokenPayload {
-  userId: string;
-  userName: string;
-}
+import { TokenPayload } from './token-payload';
 
 @Injectable()
 export class AuthService {
