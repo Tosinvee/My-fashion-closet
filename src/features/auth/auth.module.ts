@@ -11,6 +11,7 @@ import { User, UserSchema } from '../user/schema/user.schema';
 import { MailService } from '../mail/mail.service';
 import { OtpService } from '../otp/otp.service';
 import { Otp, OtpSchema } from '../otp/schema/otp.schema';
+import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
@@ -29,7 +30,14 @@ import { Otp, OtpSchema } from '../otp/schema/otp.schema';
     JwtModule,
     forwardRef(() => UserModule),
   ],
-  providers: [AuthService, JwtStrategy, UserService, MailService, OtpService],
+  providers: [
+    AuthService,
+    JwtStrategy,
+    UserService,
+    MailService,
+    OtpService,
+    LocalStrategy,
+  ],
   controllers: [AuthController],
 })
 export class AuthModule {}
