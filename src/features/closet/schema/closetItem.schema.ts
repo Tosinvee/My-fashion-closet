@@ -4,6 +4,7 @@ import { ObjectId } from '../../../utils/mongoose/object-id';
 import { Category } from './category.schema';
 import { createCleanSchema } from '../../../utils/mongoose/schema.method';
 import { User } from '../../user/schema/user.schema';
+import { Tag } from './tag.schema';
 
 @Schema()
 export class ClosetItem extends Document {
@@ -21,5 +22,8 @@ export class ClosetItem extends Document {
 
   @Prop({ type: ObjectId, ref: User.name })
   user: User;
+
+  @Prop({ type: [], ref: Tag.name })
+  tags: string[];
 }
 export const ClosetItemSchema = createCleanSchema(ClosetItem);
