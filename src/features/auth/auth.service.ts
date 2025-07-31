@@ -79,7 +79,7 @@ export class AuthService {
     }
   }
 
-  async verifyUser(email: string, password: string) {
+  async validateUser(email: string, password: string) {
     const user = await this.userService.getUser({ email });
 
     if (!user || !(await compare(password, user.password))) {
